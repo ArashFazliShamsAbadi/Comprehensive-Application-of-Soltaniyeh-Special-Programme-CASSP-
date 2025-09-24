@@ -90,45 +90,45 @@ st.image("CurrentImage.jpg", width=400)
 env_expander = st.sidebar.expander("اقلیم، طبیعت و محیط زیست")
 
 
-fpopulation = pd.read_excel(r"D:\Arash\StreamLit\Other_Try\Multipage\fDemography_pop.xlsx")
-fpopulation_rate = pd.read_excel(r"D:\Arash\StreamLit\Other_Try\Multipage\fDemography_poprate.xlsx")
-fage_sex85 = pd.read_excel(r"D:\Arash\StreamLit\Other_Try\Multipage\f85_agesex.xlsx")
-fage_sex90 = pd.read_excel(r"D:\Arash\StreamLit\Other_Try\Multipage\f90_agesex.xlsx")
-fage_sex95 = pd.read_excel(r"D:\Arash\StreamLit\Other_Try\Multipage\f95_agesex.xlsx")
+fpopulation = pd.read_excel("fDemography_pop.xlsx")
+fpopulation_rate = pd.read_excel("fDemography_poprate.xlsx")
+fage_sex85 = pd.read_excel("f85_agesex.xlsx")
+fage_sex90 = pd.read_excel("f90_agesex.xlsx")
+fage_sex95 = pd.read_excel("f95_agesex.xlsx")
 
-finterpersonal_trust = pd.read_excel(r"D:\Arash\StreamLit\Other_Try\Multipage\finterpersonal_trust.xlsx")
-finstutitional_trust = pd.read_excel(r"D:\Arash\StreamLit\Other_Try\Multipage\finstutitional_trust.xlsx")
+finterpersonal_trust = pd.read_excel("finterpersonal_trust.xlsx")
+finstutitional_trust = pd.read_excel("finstutitional_trust.xlsx")
 
-fall_trust = pd.read_excel(r"D:\Arash\StreamLit\Other_Try\Multipage\fall_trust.xlsx")
-fcommunication = pd.read_excel(r"D:\Arash\StreamLit\Other_Try\Multipage\fcommunication.xlsx")
-fformal_participation = pd.read_excel(r"D:\Arash\StreamLit\Other_Try\Multipage\fformal_participation.xlsx")
-finformal_participation = pd.read_excel(r"D:\Arash\StreamLit\Other_Try\Multipage\finformal_participation.xlsx")
-fall_participation = pd.read_excel(r"D:\Arash\StreamLit\Other_Try\Multipage\fall_participation.xlsx")
-fsocial_capital = pd.read_excel(r"D:\Arash\StreamLit\Other_Try\Multipage\fsocial_capital.xlsx")
-fresilience = pd.read_excel(r"D:\Arash\StreamLit\Other_Try\Multipage\fresilience.xlsx")
-fpeople_issues_file = pd.read_excel(r"D:\Arash\StreamLit\Other_Try\Multipage\fpeople_issues.xlsx")
+fall_trust = pd.read_excel("fall_trust.xlsx")
+fcommunication = pd.read_excel("fcommunication.xlsx")
+fformal_participation = pd.read_excel("fformal_participation.xlsx")
+finformal_participation = pd.read_excel("finformal_participation.xlsx")
+fall_participation = pd.read_excel("fall_participation.xlsx")
+fsocial_capital = pd.read_excel("fsocial_capital.xlsx")
+fresilience = pd.read_excel("fresilience.xlsx")
+fpeople_issues_file = pd.read_excel("fpeople_issues.xlsx")
 
 
-fgeneral_economic_table = r"D:\Arash\StreamLit\Other_Try\Multipage\fGeneral_Economic.xlsx"
-feconomic_sectors_table = r"D:\Arash\StreamLit\Other_Try\Multipage\fEconomic_Sectors.xlsx"
-ftourists_table = r"D:\Arash\StreamLit\Other_Try\Multipage\fTourists.xlsx"
-fhotels = r"D:\Arash\StreamLit\Other_Try\Multipage\fHotels.xlsx"
+fgeneral_economic_table = "fGeneral_Economic.xlsx"
+feconomic_sectors_table = "fEconomic_Sectors.xlsx"
+ftourists_table = "fTourists.xlsx"
+fhotels = "fHotels.xlsx"
 
-landcover_file = pd.read_excel(r"D:\Arash\StreamLit\Other_Try\Multipage\Landcover.xlsx")
+landcover_file = pd.read_excel("Landcover.xlsx")
 landcover_df = pd.DataFrame(landcover_file)
 landcover_df["percentage (%)"] = landcover_df["percentage (%)"]*100
-fwater_file = pd.read_excel(r"D:\Arash\StreamLit\Other_Try\Multipage\fwater_supply.xlsx")
-fwater_consumption = pd.read_excel(r"D:\Arash\StreamLit\Other_Try\Multipage\fwater_consumption.xlsx")
+fwater_file = pd.read_excel("fwater_supply.xlsx")
+fwater_consumption = pd.read_excel("fwater_consumption.xlsx")
 precipitation = pd.read_excel("precipitation.xlsx")
-flanduse_raw_table = r"D:\Arash\StreamLit\Other_Try\Multipage\flanduse.xlsx"
-fparcels = r"D:\Arash\StreamLit\Other_Try\Multipage\fParcels.xls"
-fbuilding_direction = r"D:\Arash\StreamLit\Other_Try\Multipage\fBuilding_Direction.xlsx"
-fbuilding_toode = r"D:\Arash\StreamLit\Other_Try\Multipage\fBuilding_Toodeh.xlsx"
-fbuilding_toode_dimension = r"D:\Arash\StreamLit\Other_Try\Multipage\fBuilding_Toodeh_Dimension.xlsx"
-froads_traffic = r"D:\Arash\StreamLit\Other_Try\Multipage\fRoads_Traffic.xlsx"
-froads_traffic_barchart = r"D:\Arash\StreamLit\Other_Try\Multipage\fRoads_Traffic_BarChart.xlsx"
-froads_width = r"D:\Arash\StreamLit\Other_Try\Multipage\fRoads_Width.xlsx"
-froads_slop = r"D:\Arash\StreamLit\Other_Try\Multipage\fRoads_Slop.xlsx"
+flanduse_raw_table = "flanduse.xlsx"
+fparcels = "fParcels.xls"
+fbuilding_direction = "fBuilding_Direction.xlsx"
+fbuilding_toode = "fBuilding_Toodeh.xlsx"
+fbuilding_toode_dimension = "fBuilding_Toodeh_Dimension.xlsx"
+froads_traffic = "fRoads_Traffic.xlsx"
+froads_traffic_barchart = "fRoads_Traffic_BarChart.xlsx"
+froads_width = "fRoads_Width.xlsx"
+froads_slop = "fRoads_Slop.xlsx"
 
 
 landcover = env_expander.toggle("پوشش زمین")
@@ -640,3 +640,4 @@ if reports_toggle:
         ":orange[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]"
  
         st.pdf(r"D:\Arash\StreamLit\Other_Try\Multipage\03_Tahlil.pdf", height=800)
+
