@@ -71,10 +71,5 @@ if strategies:
     col3.markdown(":blue[**WO5**]: Strengthening the spirit of hope and foresight among people.")
     col3.markdown(":blue[**WO6**]: Improving the living conditions of residents.")
     
-document_toggle = st.sidebar.toggle("Full report of the strategic plan")   
-if document_toggle:
-    st.header("Strategic Plan Report", divider="orange") 
-    st.pdf("04_05_RhbordiSakhtari.pdf", height=800)
-    
-    
+
 
