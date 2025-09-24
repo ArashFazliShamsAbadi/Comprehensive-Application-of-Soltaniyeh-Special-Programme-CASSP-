@@ -4,4 +4,3 @@ shapely
 folium
 utm
 pyproj
-io
