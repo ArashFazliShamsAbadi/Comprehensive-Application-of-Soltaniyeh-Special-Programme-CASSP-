@@ -9,3 +9,4 @@ folium.plugins
 utm
 pyproj
 zipfile
+io
