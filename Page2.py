@@ -47,43 +47,43 @@ st.title("Current Condition; Town and surrounding")
 env_expander = st.sidebar.expander("Environmental Condition")
 
 
-population = pd.read_excel(r"D:\Arash\StreamLit\Other_Try\Multipage\Demography_pop.xlsx")
-population_rate = pd.read_excel(r"D:\Arash\StreamLit\Other_Try\Multipage\Demography_poprate.xlsx")
-age_sex85 = pd.read_excel(r"D:\Arash\StreamLit\Other_Try\Multipage\85_agesex.xlsx")
-age_sex90 = pd.read_excel(r"D:\Arash\StreamLit\Other_Try\Multipage\90_agesex.xlsx")
-age_sex95 = pd.read_excel(r"D:\Arash\StreamLit\Other_Try\Multipage\95_agesex.xlsx")
-interpersonal_trust = pd.read_excel(r"D:\Arash\StreamLit\Other_Try\Multipage\interpersonal_trust.xlsx")
-instutitional_trust = pd.read_excel(r"D:\Arash\StreamLit\Other_Try\Multipage\instutitional_trust.xlsx")
-all_trust = pd.read_excel(r"D:\Arash\StreamLit\Other_Try\Multipage\all_trust.xlsx")
-communication = pd.read_excel(r"D:\Arash\StreamLit\Other_Try\Multipage\communication.xlsx")
-formal_participation = pd.read_excel(r"D:\Arash\StreamLit\Other_Try\Multipage\formal_participation.xlsx")
-informal_participation = pd.read_excel(r"D:\Arash\StreamLit\Other_Try\Multipage\informal_participation.xlsx")
-all_participation = pd.read_excel(r"D:\Arash\StreamLit\Other_Try\Multipage\all_participation.xlsx")
-social_capital = pd.read_excel(r"D:\Arash\StreamLit\Other_Try\Multipage\social_capital.xlsx")
-resilience = pd.read_excel(r"D:\Arash\StreamLit\Other_Try\Multipage\resilience.xlsx")
-people_issues_file = pd.read_excel(r"D:\Arash\StreamLit\Other_Try\Multipage\people_issues.xlsx")
+population = pd.read_excel("Demography_pop.xlsx")
+population_rate = pd.read_excel("Demography_poprate.xlsx")
+age_sex85 = pd.read_excel("85_agesex.xlsx")
+age_sex90 = pd.read_excel("90_agesex.xlsx")
+age_sex95 = pd.read_excel("95_agesex.xlsx")
+interpersonal_trust = pd.read_excel("interpersonal_trust.xlsx")
+instutitional_trust = pd.read_excel("instutitional_trust.xlsx")
+all_trust = pd.read_excel("all_trust.xlsx")
+communication = pd.read_excel("communication.xlsx")
+formal_participation = pd.read_excel("formal_participation.xlsx")
+informal_participation = pd.read_excel("informal_participation.xlsx")
+all_participation = pd.read_excel("all_participation.xlsx")
+social_capital = pd.read_excel("social_capital.xlsx")
+resilience = pd.read_excel("resilience.xlsx")
+people_issues_file = pd.read_excel("people_issues.xlsx")
 
 
-general_economic_table = r"D:\Arash\StreamLit\Other_Try\Multipage\General_Economic.xlsx"
-economic_sectors_table = r"D:\Arash\StreamLit\Other_Try\Multipage\Economic_Sectors.xlsx"
-tourists_table = r"D:\Arash\StreamLit\Other_Try\Multipage\Tourists.xlsx"
-hotels = r"D:\Arash\StreamLit\Other_Try\Multipage\Hotels.xlsx"
+general_economic_table = "General_Economic.xlsx"
+economic_sectors_table = "Economic_Sectors.xlsx"
+tourists_table = "Tourists.xlsx"
+hotels = "Hotels.xlsx"
 
-landcover_file = pd.read_excel(r"D:\Arash\StreamLit\Other_Try\Multipage\Landcover.xlsx")
+landcover_file = pd.read_excel("Landcover.xlsx")
 landcover_df = pd.DataFrame(landcover_file)
 landcover_df["percentage (%)"] = landcover_df["percentage (%)"]*100
 water_file = pd.read_excel("water_supply.xlsx")
 water_consumption = pd.read_excel("water_consumption.xlsx")
 precipitation = pd.read_excel("precipitation.xlsx")
-landuse_raw_table = r"D:\Arash\StreamLit\Other_Try\Multipage\landuse.xlsx"
-parcels = r"D:\Arash\StreamLit\Other_Try\Multipage\Parcels.xls"
-building_direction = r"D:\Arash\StreamLit\Other_Try\Multipage\Building_Direction.xlsx"
-building_toode = r"D:\Arash\StreamLit\Other_Try\Multipage\Building_Toodeh.xlsx"
-building_toode_dimension = r"D:\Arash\StreamLit\Other_Try\Multipage\Building_Toodeh_Dimension.xlsx"
-roads_traffic = r"D:\Arash\StreamLit\Other_Try\Multipage\Roads_Traffic.xlsx"
-roads_traffic_barchart = r"D:\Arash\StreamLit\Other_Try\Multipage\Roads_Traffic_BarChart.xlsx"
-roads_width = r"D:\Arash\StreamLit\Other_Try\Multipage\Roads_Width.xlsx"
-roads_slop = r"D:\Arash\StreamLit\Other_Try\Multipage\Roads_Slop.xlsx"
+landuse_raw_table = "landuse.xlsx"
+parcels = "Parcels.xls"
+building_direction = "Building_Direction.xlsx"
+building_toode = "Building_Toodeh.xlsx"
+building_toode_dimension = "Building_Toodeh_Dimension.xlsx"
+roads_traffic = "Roads_Traffic.xlsx"
+roads_traffic_barchart = "Roads_Traffic_BarChart.xlsx"
+roads_width = "Roads_Width.xlsx"
+roads_slop = "Roads_Slop.xlsx"
 
 
 landcover = env_expander.toggle("Land Cover")
@@ -481,3 +481,4 @@ if reports_toggle:
     if analysis:
         st.header("Analysis", divider="orange")
         st.pdf(r"D:\Arash\StreamLit\Other_Try\Multipage\03_Tahlil.pdf", height=800)
+
