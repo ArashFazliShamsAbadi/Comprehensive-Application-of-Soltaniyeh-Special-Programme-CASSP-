@@ -449,14 +449,14 @@ if other_layer_toggle:
 world_layers = st.sidebar.expander("World Heritage Layers")
 historical_roads = world_layers.toggle("World Ancient Roads")
 if historical_roads:
-    ancient_road_json = r"D:\Arash\ArcGis_Pro_Manual\Folium_Map_Interactive\Ancient_Road.geojson"
+    ancient_road_json = r"geojsons\Ancient_Road.geojson"
     folium.GeoJson(
         ancient_road_json,
         style_function=lambda feature: {
             "color": ancient_road_colour(feature["properties"]["Route_Name"]),
             "weight": 6,
             "dashArray": "12, 12",}, popup=popup10).add_to(map1)
-    ancient_Eu_road_json = r"D:\Arash\ArcGis_Pro_Manual\Folium_Map_Interactive\Ancient_Road_European.geojson"
+    ancient_Eu_road_json = r"geojsons\Ancient_Road_European.geojson"
     folium.GeoJson(
         ancient_Eu_road_json,
         style_function=lambda feature: {
@@ -466,7 +466,7 @@ if historical_roads:
     
 world_heritage_sites = world_layers.toggle("World Heritage Sites")
 if world_heritage_sites:
-    world_heritage_file = r"D:\Arash\StreamLit\Other_Try\Multipage\geojsons\World_Heritage_Sites.geojson"
+    world_heritage_file = r"geojsons\World_Heritage_Sites.geojson"
     gdf = gpd.read_file(world_heritage_file)
     whs_locations=[]
     info=[]
@@ -530,4 +530,5 @@ else:
 folium.FitOverlays().add_to(map1)
 
 map_town = stf(map1, width=700, height=600, use_container_width=True)
+
 # center =(36.4342609,48.7952043),
