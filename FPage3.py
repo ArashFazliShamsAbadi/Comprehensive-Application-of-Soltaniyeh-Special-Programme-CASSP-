@@ -94,6 +94,7 @@ document_toggle = st.sidebar.toggle("گزارش برنامه راهبردی")
 if document_toggle:
     st.markdown('<p class="persian-text">متن کامل برنامه راهبردی</p>', unsafe_allow_html=True)
     ":orange[----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]"
-    st.pdf(r"D:\Arash\StreamLit\Other_Try\Multipage\04_05_RhbordiSakhtari.pdf", height=800)
+    st.pdf("04_05_RhbordiSakhtari.pdf", height=800)
     
     
+
