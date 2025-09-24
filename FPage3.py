@@ -88,13 +88,7 @@ if strategies:
     col3.markdown('<p class="persian-text">WO4 : شکل­ دهی و تقویت شبکه همپیوند عرصه ­های تاریخی</p>',
                   unsafe_allow_html=True)
     col3.markdown('<p class="persian-text">WO5 : تقویت روحیه امید و آینده­ نگری در مردم</p>', unsafe_allow_html=True)
-    col3.markdown('<p class="persian-text">WO6 : ارتقاء شرایط زیستی ساکنان</p>', unsafe_allow_html=True)
+    col3.markdown('<p class="persian-text">WO6 : ارتقاء شرایط زیستی ساکنان</p>', unsafe_allow_html=True)    
     
-document_toggle = st.sidebar.toggle("گزارش برنامه راهبردی")   
-if document_toggle:
-    st.markdown('<p class="persian-text">متن کامل برنامه راهبردی</p>', unsafe_allow_html=True)
-    ":orange[----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]"
-    st.pdf("04_05_RhbordiSakhtari.pdf", height=800)
-    
-    
+
 
