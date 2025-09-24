@@ -10,8 +10,7 @@ import folium
 from folium.plugins import MeasureControl
 import utm
 from pyproj import CRS
-import networkx as nx
-import json
+
 
 
 @st.cache_data
@@ -861,11 +860,4 @@ if plot_code is not None and check_plot_code(plot_code) == plot_code:
     map1.add_child(MeasureControl(position="bottomleft",collapesed=False))
     folium.FitOverlays().add_to(map1)
     map_town = stf(map1, width=1000)
-            
 
-
-document_toggle = st.sidebar.toggle("گزارش ضوابط و مقررات طرح ویژه سلطانیه")   
-if document_toggle:
-    st.markdown('<p class="persian-titr2">گزارش کامل ضوابط و مقررات طرح ویژه سلطانیه</p>', unsafe_allow_html=True)
-
-    st.pdf("06_1_Zavabet_AsasTarh.pdf", height=800)
