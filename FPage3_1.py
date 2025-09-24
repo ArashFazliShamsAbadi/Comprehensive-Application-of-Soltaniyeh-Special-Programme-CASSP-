@@ -86,17 +86,13 @@ if detailed_map:
                 unsafe_allow_html=True)
     col1, col2, col3 = st.columns(3)
     for i in range(1,13,3):
-        col1.image(os.path.join(r"D:\Arash\StreamLit\Other_Try\Multipage\Map2000", f"0{i}.jpg"))
-        col2.image(os.path.join(r"D:\Arash\StreamLit\Other_Try\Multipage\Map2000", f"0{i+1}.jpg"))
-        col3.image(os.path.join(r"D:\Arash\StreamLit\Other_Try\Multipage\Map2000", f"0{i+2}.jpg"))
+        col1.image(os.path.join("Map2000", f"0{i}.jpg"))
+        col2.image(os.path.join("Map2000", f"0{i+1}.jpg"))
+        col3.image(os.path.join("Map2000", f"0{i+2}.jpg"))
         
-        
-    # for i in range(2,15,3):
-    #     col2.image(os.path.join(r"D:\Arash\StreamLit\Other_Try\Multipage\Map2000", f"0{i}.jpg"))    
-    # for i in range(3,15,3):
-    #     col3.image(os.path.join(r"D:\Arash\StreamLit\Other_Try\Multipage\Map2000", f"0{i}.jpg"))  
 document_toggle = st.sidebar.toggle("گزارش طرح تفصیلی")   
 if document_toggle:
     st.markdown('<p class="persian-titr1">گزارش کامل طرح تفصیلی شهر</p>',
                 unsafe_allow_html=True)
-    st.pdf(r"D:\Arash\StreamLit\Other_Try\Multipage\06_TarhTafsili_EslahiOstan.pdf", height=800)
+
+    st.pdf("06_TarhTafsili_EslahiOstan.pdf", height=800)
