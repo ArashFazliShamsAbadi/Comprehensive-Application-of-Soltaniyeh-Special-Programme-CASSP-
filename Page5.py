@@ -547,8 +547,5 @@ if plot_code is not None and check_plot_code(plot_code) == plot_code:
     folium.FitOverlays().add_to(map1)
     map_town = stf(map1) 
     
-document_toggle = st.sidebar.toggle("Urban Law & Regulations report")   
-if document_toggle:
-    st.header("Urban Law and Regulations", divider="orange") 
 
-    st.pdf("06_1_Zavabet_AsasTarh.pdf", height=800)
+
