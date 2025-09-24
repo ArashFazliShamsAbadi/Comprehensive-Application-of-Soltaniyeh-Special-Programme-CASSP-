@@ -2,7 +2,6 @@ geopandas
 streamlit_folium
 shapely
 folium
-folium.plugins
 utm
 pyproj
 zipfile
