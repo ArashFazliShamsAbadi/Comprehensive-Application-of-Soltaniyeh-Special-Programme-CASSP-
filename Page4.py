@@ -286,7 +286,7 @@ main_layers = st.sidebar.expander("Soltaniyeh World Heritage Sites")
 
 chaman_toggle = main_layers.toggle("Soltaniyeh Pasture")
 if chaman_toggle:
-    chaman_file = r"D:\Arash\ArcGis_Pro_Manual\Folium_Map_Interactive\Chaman.geojson"
+    chaman_file = r"geojsons\Chaman.geojson"
     folium.GeoJson(
         chaman_file,
         style_function=lambda feature: {
@@ -297,14 +297,14 @@ if chaman_toggle:
     ).add_to(map1)
 historical_toggle = main_layers.toggle("Historical Sites")
 if historical_toggle:
-    historical_marker = r"D:\Arash\StreamLit\Other_Try\Multipage\geojsons\Historical_Sites.geojson"
-    historical_sites = r"D:\Arash\StreamLit\Other_Try\Multipage\geojsons\Historical_sites_boundaries.geojson"
+    historical_marker = r"geojsons\Historical_Sites.geojson"
+    historical_sites = r"geojsons\Historical_sites_boundaries.geojson"
     folium.GeoJson(historical_marker, popup = popup01).add_to(map1)
     folium.GeoJson(historical_sites).add_to(map1)
 
 buffer_toggle = main_layers.toggle("Buffer Zones")
 if buffer_toggle:
-    buffer_zones_json = r"D:\Arash\ArcGis_Pro_Manual\Folium_Map_Interactive\Buffer_Zones.geojson"
+    buffer_zones_json = r"geojsons\Buffer_Zones.geojson"
 
     folium.GeoJson(
         buffer_zones_json,
@@ -315,7 +315,7 @@ if buffer_toggle:
             "dashArray": "5, 5",}
         ).add_to(map1)
     
-ancient_hill_file = r"D:\Arash\ArcGis_Pro_Manual\Folium_Map_Interactive\Ancient_Hills.geojson"
+ancient_hill_file = r"geojsons\Ancient_Hills.geojson"
 toggle_hill_zanjan = main_layers.toggle("Zanjan Ancient Hills")
 if toggle_hill_zanjan:
     folium.GeoJson(
@@ -330,11 +330,11 @@ boundaries_toggle = programme_layers.toggle("Boundaries")
 if boundaries_toggle:
     officials = programme_layers.checkbox("Official Boundaries")
     if officials:
-        officials_file = r"D:\Arash\StreamLit\Other_Try\Multipage\geojsons\Official_Boundaries.geojson"
+        officials_file = r"geojsons\Official_Boundaries.geojson"
         folium.GeoJson(officials_file).add_to(map1)
     current_border = programme_layers.checkbox("Current City Border (untill 2025)")
     if current_border:
-        current_city_border = r"D:\Arash\StreamLit\Other_Try\Multipage\geojsons\Current_City_Border.geojson"
+        current_city_border = r"geojsons\Current_City_Border.geojson"
         folium.GeoJson(current_city_border, style_function=lambda feature:{
             "color":"blue",
             "fillcolor": "gray",
@@ -342,28 +342,28 @@ if boundaries_toggle:
         }).add_to(map1)
     current_region = programme_layers.checkbox("Current Surrounding Region")
     if current_region:
-        current_region = r"D:\Arash\StreamLit\Other_Try\Multipage\geojsons\Harim_Manzar.geojson"
+        current_region = r"geojsons\Harim_Manzar.geojson"
         folium.GeoJson(current_region, color="green").add_to(map1)
     proposed_border = programme_layers.checkbox("Proposed City Border")
     if proposed_border:
-        proposed_city_border = r"D:\Arash\StreamLit\Other_Try\Multipage\geojsons\Mahdoodeh.geojson"
+        proposed_city_border = r"geojsons\Mahdoodeh.geojson"
         folium.GeoJson(proposed_city_border).add_to(map1)
     proposed_region = programme_layers.checkbox("Proposed Surrounding Region")
     if proposed_region:
-        proposed_region_border = r"D:\Arash\StreamLit\Other_Try\Multipage\geojsons\Marz_Harim_Pishnahadi.geojson"
+        proposed_region_border = r"geojsons\Marz_Harim_Pishnahadi.geojson"
         folium.GeoJson(proposed_region_border, color="grey").add_to(map1)
 zoning_toggle = programme_layers.toggle("Zoning Layers")
 if zoning_toggle:
     city_zoning = programme_layers.checkbox("City Functional Zoning")
     if city_zoning:
-        zoning_file = r"D:\Arash\StreamLit\Other_Try\Multipage\geojsons\Town_Zoning.geojson"
+        zoning_file = r"geojsons\Town_Zoning.geojson"
         folium.GeoJson(zoning_file, 
                        style_function=lambda feature: {
                            "color": zone_fill_colour[feature["properties"]["ZirPahne"]],
                            "weight": 1}, popup=popup02).add_to(map1)
     region_zoning = programme_layers.checkbox("Region Zoning")
     if region_zoning:
-        region_zones = r"D:\Arash\StreamLit\Other_Try\Multipage\geojsons\Haim_Zones.geojson"
+        region_zones = r"geojsons\Haim_Zones.geojson"
         folium.GeoJson(region_zones,
                        style_function = lambda feature: {
                            "fillColor": zoneregion_fill_colour(feature["properties"]["Name"]),
@@ -373,7 +373,7 @@ if zoning_toggle:
                        }, popup = popup03).add_to(map1)
     landscape_zoning = programme_layers.checkbox("Landscape Buffer Zones")
     if landscape_zoning:
-        landscape_buffer_zones = r"D:\Arash\StreamLit\Other_Try\Multipage\geojsons\Soltanieh_Dome_Vision.geojson"
+        landscape_buffer_zones = r"geojsons\Soltanieh_Dome_Vision.geojson"
         folium.GeoJson(landscape_buffer_zones, style_function=lambda feature: {
             "fillColor": vision_zones_colour(feature["properties"]["Name"]),
             "color": "black",
@@ -381,7 +381,7 @@ if zoning_toggle:
             "dashArray": "5, 5"}, popup = popup04).add_to(map1) 
     height_zoning = programme_layers.checkbox("Building Height Zones")
     if height_zoning:
-        height_zones = r"D:\Arash\StreamLit\Other_Try\Multipage\geojsons\Height_Zones.geojson"
+        height_zones = r"geojsons\Height_Zones.geojson"
         folium.GeoJson(height_zones, style_function=lambda feature: {
             "fillColor": height_zones_colour(feature["properties"]["Eng_Name"]),
             "color": "black",
@@ -392,38 +392,38 @@ other_layer_toggle = programme_layers.toggle("Other Layers")
 if other_layer_toggle:
     current_buildings = programme_layers.checkbox("Current Buildings")
     if current_buildings:
-        buildings_layer = r"D:\Arash\StreamLit\Other_Try\Multipage\geojsons\Buildings.geojson"
+        buildings_layer = r"geojsons\Buildings.geojson"
         folium.GeoJson(buildings_layer, fill_color = "grey", color="black",
                        weight = 1, popup=popup06).add_to(map1)
     current_landuse = programme_layers.checkbox("Current Plots Landuse")
     if current_landuse:
-        current_landuse_file = r"D:\Arash\StreamLit\Other_Try\Multipage\geojsons\Parcels.geojson"
+        current_landuse_file = r"geojsons\Parcels.geojson"
         folium.GeoJson(current_landuse_file, style_function=lambda feature: {
             "fillColor": landuse_colour(feature["properties"]["Landuse"]),
             "color": "black",
             "weight": 1}, popup=popup07).add_to(map1)
     neighbourhoods = programme_layers.checkbox("Neighbourhoods")
     if neighbourhoods:
-        neighbourhoods_file = r"D:\Arash\StreamLit\Other_Try\Multipage\geojsons\Mahallat_Ejtemayi.geojson"
+        neighbourhoods_file = r"geojsons\Mahallat_Ejtemayi.geojson"
         folium.GeoJson(neighbourhoods_file, color= "black", dashArray= "5,5", 
                        fill_color= "#728944", fill_opacity= 0.2, popup=popup08).add_to(map1)
     current_plan = programme_layers.checkbox("Current Implemented Plan")
     if current_plan:
-        current_implemented_plan = r"D:\Arash\StreamLit\Other_Try\Multipage\geojsons\Current_Implemented_Plan.geojson"
+        current_implemented_plan = r"geojsons\Current_Implemented_Plan.geojson"
         folium.GeoJson(current_implemented_plan, style_function=lambda feature: {
             "fillColor": currentplan_colour(feature["properties"]["Layer"]),
             "color": "black","weight": 1}
                        , popup=popup09).add_to(map1)
     detailed_project = programme_layers.checkbox("Proposed Local Projects")
     if detailed_project:
-        detailed_plans = r"D:\Arash\StreamLit\Other_Try\Multipage\geojsons\Detailed_Projects.geojson"
+        detailed_plans = r"geojsons\Detailed_Projects.geojson"
         folium.GeoJson(detailed_plans, style_function=lambda feature: {
             "fillColor": detailed_projects_colour(feature["properties"]["Name"]),
             "color": "black",
             "weight": 2,"dashArray": "5, 5"}, popup=popup04).add_to(map1)
     public_facilities = programme_layers.checkbox("Proposed Public Facilities")
     if public_facilities:
-        public_amenities = r"D:\Arash\StreamLit\Other_Try\Multipage\geojsons\Public_Amenities.geojson"
+        public_amenities = r"geojsons\Public_Amenities.geojson"
         folium.GeoJson(public_amenities, style_function=lambda feature: {
             "fillColor": facilities_colour(feature["properties"]["Eng_Name"]),
             "color": "black",
@@ -432,8 +432,8 @@ if other_layer_toggle:
                        , popup=popup05).add_to(map1)
     city_roads = programme_layers.checkbox("Proposed City Roads Network")
     if city_roads:
-        roads_file = r"D:\Arash\StreamLit\Other_Try\Multipage\geojsons\City_Roads.geojson"
-        pouste = r"D:\Arash\StreamLit\Other_Try\Multipage\geojsons\Pousteh_Pish.geojson"
+        roads_file = r"geojsons\City_Roads.geojson"
+        pouste = r"geojsons\Pousteh_Pish.geojson"
         folium.GeoJson(roads_file,style_function=lambda feature: {
             "color": road_color(feature["properties"]["Selsele"]),
             "weight": 2}, 
@@ -532,3 +532,4 @@ folium.FitOverlays().add_to(map1)
 map_town = stf(map1, width=700, height=600, use_container_width=True)
 
 # center =(36.4342609,48.7952043),
+
