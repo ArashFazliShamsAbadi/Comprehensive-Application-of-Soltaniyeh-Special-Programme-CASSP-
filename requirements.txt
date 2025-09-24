@@ -1,9 +1,6 @@
-streamlit
 geopandas
 streamlit_folium
 shapely
-pandas
-os
 folium
 folium.plugins
 utm
