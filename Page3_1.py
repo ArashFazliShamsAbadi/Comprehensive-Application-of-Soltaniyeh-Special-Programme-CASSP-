@@ -44,8 +44,5 @@ if detailed_map:
         col2.image(os.path.join("Map2000", f"0{i+1}.jpg"))
         col3.image(os.path.join("Map2000", f"0{i+2}.jpg"))
         
-document_toggle = st.sidebar.toggle("Full report of the structure plan")   
-if document_toggle:
-    st.header("Structure Plan Report", divider="orange") 
 
-    st.pdf("06_TarhTafsili_EslahiOstan.pdf", height=800)
+
