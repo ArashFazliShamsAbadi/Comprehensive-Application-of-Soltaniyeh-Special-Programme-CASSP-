@@ -531,5 +531,6 @@ folium.FitOverlays().add_to(map1)
 
 map_town = stf(map1, width=700, height=600, use_container_width=True)
 
-# center =(36.4342609,48.7952043),
+
+
 
