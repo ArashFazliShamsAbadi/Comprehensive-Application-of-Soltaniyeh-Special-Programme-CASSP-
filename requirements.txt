@@ -5,3 +5,4 @@ folium
 utm
 pyproj
 openpyxl
+matplotlib
