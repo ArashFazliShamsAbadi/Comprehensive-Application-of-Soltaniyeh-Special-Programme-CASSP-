@@ -19,11 +19,11 @@ def load_data(path):
     return gpd.read_file(path)
 
 # my directory
-main_directory = r'D:\Arash\StreamLit\Other_Try\Multipage'
+# main_directory = r'D:\Arash\StreamLit\Other_Try\Multipage'
 
 
 # basic files for working with
-parcels = r"D:\Arash\StreamLit\Other_Try\Multipage\geojsons\Parcel1401.geojson"
+parcels = r"geojsons\Parcel1401.geojson"
 gdf_parcels = load_data(parcels)
 gdf_parcels_check = gdf_parcels.set_index("ObjectID", drop=False)
 
@@ -34,7 +34,7 @@ def find_parcel(id):
     except KeyError:
         return None
 
-city_zones = r"D:\Arash\StreamLit\Other_Try\Multipage\geojsons\City_Zoning.geojson"
+city_zones = r"geojsons\City_Zoning.geojson"
 city_zoning = load_data(city_zones)
 functions_list = []
 with open("Functions1.txt") as file:
@@ -43,7 +43,7 @@ with open("Functions1.txt") as file:
 
 gdf_parcels = gdf_parcels.to_crs('EPSG:32639')
 
-axial_map_json = r"D:\Arash\StreamLit\Other_Try\Multipage\geojsons\Axial_Map.geojson"
+axial_map_json = r"geojsons\Axial_Map.geojson"
 axial_map = load_data(axial_map_json) 
 
 
@@ -58,13 +58,13 @@ def zone_res(zone):
     res_rate = b_f.iloc[0]
     return res_rate
 
-historical_sites_path = r"D:\Arash\StreamLit\Other_Try\Multipage\geojsons\Historical_sites_boundaries.geojson"
+historical_sites_path = r"geojsons\Historical_sites_boundaries.geojson"
 historical_sites = load_data(historical_sites_path)
 
-parcel_width = r"D:\Arash\StreamLit\Other_Try\Multipage\geojsons\Parcel_width.geojson"
+parcel_width = r"geojsons\Parcel_width.geojson"
 parcel_width_road = load_data(parcel_width)
 
-parcel_angle = r"D:\Arash\StreamLit\Other_Try\Multipage\geojsons\parcel_angle.geojson"
+parcel_angle = r"geojsons\parcel_angle.geojson"
 parcel_angle_gdf = load_data(parcel_angle)
 
 @st.cache_data
@@ -121,10 +121,10 @@ def landuse_current(a):
         return "خارج از محدوده و یا در مسیر معابر"
 
 # to show the residential rate in zone
-basic_rates = r"D:\Arash\StreamLit\Other_Try\Multipage\Residential_Rates.xlsx"
+basic_rates = "Residential_Rates.xlsx"
 basic_rates_df = read_pd_file(basic_rates).set_index("title", drop=False)
 
-city_blocks = r"D:\Arash\StreamLit\Other_Try\Multipage\geojsons\City_New_Blocks.geojson"
+city_blocks = r"geojsons\City_New_Blocks.geojson"
 city_blocks_gdf = load_data(city_blocks)
 city_blocks_gdf = city_blocks_gdf.to_crs('EPSG:32639')
 
@@ -462,7 +462,7 @@ if plot_code is not None and check_plot_code(plot_code) == plot_code:
 
     acceptable_functions = []
 
-    base_law = r"D:\Arash\StreamLit\Other_Try\Multipage\Plot_area_road_width.xlsx"
+    base_law = "Plot_area_road_width.xlsx"
     base_law_df = pd.read_excel(base_law)
 
     if main_zone != "":
@@ -492,25 +492,25 @@ if plot_code is not None and check_plot_code(plot_code) == plot_code:
 
 
     # to find relevant local project
-    base_local_projects = r"D:\Arash\StreamLit\Other_Try\Multipage\geojsons\Detailed_Projects.geojson.geojson"
+    base_local_projects = r"geojsons\Detailed_Projects.geojson.geojson"
     local_projects = load_data(base_local_projects)
     local_projects = local_projects.to_crs('EPSG:32639')
 
 
     # to find if the plot has a public facility laduse
-    public_facilities = r"D:\Arash\StreamLit\Other_Try\Multipage\geojsons\Public_Facilities.geojson"
+    public_facilities = r"geojsons\Public_Facilities.geojson"
     public_facilities_gdf = load_data(public_facilities)  
     public_facilities_gdf = public_facilities_gdf.to_crs('EPSG:32639')  
 
 
     # to show a picture taken around the plot
-    photos = r'D:\Arash\ArcGis_Pro_Manual\Folium_Map_Interactive\Shp\new_photos.shp'
-    photo_points = load_data(photos)
-    photo_points = photo_points.to_crs('EPSG:32639')
-    closest_photo = plot_location.sjoin_nearest(photo_points, distance_col="Distance")
+    # photos = r'D:\Arash\ArcGis_Pro_Manual\Folium_Map_Interactive\Shp\new_photos.shp'
+    # photo_points = load_data(photos)
+    # photo_points = photo_points.to_crs('EPSG:32639')
+    # closest_photo = plot_location.sjoin_nearest(photo_points, distance_col="Distance")
 
     # basic file to assess if a plot is inside a historical site or buffer zone
-    historical_buffers = r"D:\Arash\StreamLit\Other_Try\Multipage\geojsons\Historical_Buffer_Boundaries.geojson"
+    historical_buffers = r"geojsons\Historical_Buffer_Boundaries.geojson"
     historical_buffer_gdf = load_data(historical_buffers)
     historical_buffer_gdf = historical_buffer_gdf.to_crs('EPSG:32639')
     def building_height(point):
@@ -585,8 +585,8 @@ if plot_code is not None and check_plot_code(plot_code) == plot_code:
         st.write(f'<p class="persian-text">. مساحت قطعه بر اساس نقشه سامانه {round(list(plot_location.area)[0],2)} مترمربع است</p>',
                  unsafe_allow_html=True)
              
-        parcel_image = shutil.copyfile(closest_photo["Path"].values[0], os.path.join(main_directory, closest_photo["Name"].values[0]))
-        st.image(parcel_image, width=400, caption="تصویری از ملک و موقعیت و همجواریهای آن")
+        # parcel_image = shutil.copyfile(closest_photo["Path"].values[0], os.path.join(main_directory, closest_photo["Name"].values[0]))
+        # st.image(parcel_image, width=400, caption="تصویری از ملک و موقعیت و همجواریهای آن")
         
         
         
@@ -867,4 +867,5 @@ if plot_code is not None and check_plot_code(plot_code) == plot_code:
 document_toggle = st.sidebar.toggle("گزارش ضوابط و مقررات طرح ویژه سلطانیه")   
 if document_toggle:
     st.markdown('<p class="persian-titr2">گزارش کامل ضوابط و مقررات طرح ویژه سلطانیه</p>', unsafe_allow_html=True)
-    st.pdf(r"D:\Arash\StreamLit\Other_Try\Multipage\06_1_Zavabet_AsasTarh.pdf", height=800)
+
+    st.pdf("06_1_Zavabet_AsasTarh.pdf", height=800)
