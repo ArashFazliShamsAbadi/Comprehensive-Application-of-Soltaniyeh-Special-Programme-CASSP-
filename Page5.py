@@ -29,10 +29,7 @@ def find_parcel(id):
 
 city_zones = os.path.join("geojsons", "City_Zoning.geojson")
 city_zoning = load_data(city_zones)
-functions_list = []
-with open("Functions1.txt") as file:
-    for row in file:
-        functions_list.append(row)
+
 
 historical_sites_path = os.path.join("geojsons", "Historical_sites_boundaries.geojson")
 historical_sites = load_data(historical_sites_path)
@@ -539,6 +536,7 @@ if plot_code is not None and check_plot_code(plot_code) == plot_code:
     folium.FitOverlays().add_to(map1)
     map_town = stf(map1) 
     
+
 
 
 
