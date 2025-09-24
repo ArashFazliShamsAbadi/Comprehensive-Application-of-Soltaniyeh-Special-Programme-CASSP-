@@ -74,6 +74,7 @@ if strategies:
 document_toggle = st.sidebar.toggle("Full report of the strategic plan")   
 if document_toggle:
     st.header("Strategic Plan Report", divider="orange") 
-    st.pdf(r"D:\Arash\StreamLit\Other_Try\Multipage\04_05_RhbordiSakhtari.pdf", height=800)
+    st.pdf("04_05_RhbordiSakhtari.pdf", height=800)
     
     
+
