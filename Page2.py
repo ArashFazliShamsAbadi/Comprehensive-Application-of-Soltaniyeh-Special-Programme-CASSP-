@@ -461,24 +461,4 @@ if issues:
     st.write("""- Some historical sites and buffer zones are invaded by new construction.
              This phenomenon prevents these areas from conservational projects.""")
 
-documents_expander = st.sidebar.expander("Documents and Reports")
-documents_toggle = documents_expander.toggle("Documents")
-reports_toggle = documents_expander.toggle("Reports")
-if documents_toggle:
-    st.header("Nomination Document", divider="orange")
-    st.pdf(r"D:\Arash\StreamLit\Other_Try\Multipage\Parvande_Sabt_Jahani.pdf", height = 800)
-
-if reports_toggle:
-    background = st.sidebar.checkbox("Background & Setting")  
-    if background:
-        st.header("Nomination Document", divider="orange")
-        st.pdf(r"D:\Arash\StreamLit\Other_Try\Multipage\01_ZamineHa.pdf", height = 800) 
-    current_report = st.sidebar.checkbox("Study and survey of current condition")
-    if current_report:
-        st.header("Meticulously study and survey the current condition", divider="orange")
-        st.pdf(r"D:\Arash\StreamLit\Other_Try\Multipage\02_MotaleAt_Tafsili_Shahr.pdf", height=800)
-    analysis = st.sidebar.checkbox("Analysis Report")
-    if analysis:
-        st.header("Analysis", divider="orange")
-        st.pdf(r"D:\Arash\StreamLit\Other_Try\Multipage\03_Tahlil.pdf", height=800)
 
