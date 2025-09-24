@@ -6,6 +6,7 @@ import geopandas as gpd
 import matplotlib.pyplot as plt  
 import zipfile
 import io
+import os
 
 st.image("InteractiveMap.jpg", width=400)
 
@@ -530,6 +531,7 @@ else:
 folium.FitOverlays().add_to(map1)
 
 map_town = stf(map1, width=700, height=600, use_container_width=True)
+
 
 
 
