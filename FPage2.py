@@ -607,37 +607,7 @@ if issues:
     st.write('<p class="persian-text">برخی از عرصه های تاریخی و حرایم آنها توسط ساخت و سازهای جدید مورد هجوم قرار گرفته‌اند. این پدیده مانع از اجرای پروژه‌های حفاظتی در این محدوده ها می‌شود.</p>',
              unsafe_allow_html=True)
 
-documents_expander = st.sidebar.expander("گزارش ها و مدارک")
-documents_toggle = documents_expander.toggle("مدارک")
-reports_toggle = documents_expander.toggle("گزارش ها")
-if documents_toggle:
-    st.write('<p class="persian-titr2">پرونده ثبت جهانی سلطانیه</p>',
-             unsafe_allow_html=True) 
-    ":orange[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]"
 
-    st.pdf(r"D:\Arash\StreamLit\Other_Try\Multipage\Parvande_Sabt_Jahani.pdf", height = 800)
 
-if reports_toggle:
-    background = st.sidebar.checkbox("مطالعات زمینه ای")
-  
-    if background:
-        st.write('<p class="persian-titr2">مطالعات زمینه ای</p>',
-                unsafe_allow_html=True) 
-        ":orange[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]"
 
-        st.pdf(r"D:\Arash\StreamLit\Other_Try\Multipage\01_ZamineHa.pdf", height = 800) 
-    current_report = st.sidebar.checkbox("مطالعات تفصیلی شهر")
-    if current_report:
-        st.write('<p class="persian-titr2">مطالعات تفصیلی شهر</p>',
-                unsafe_allow_html=True)
-        ":orange[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]"
- 
-        st.pdf(r"D:\Arash\StreamLit\Other_Try\Multipage\02_MotaleAt_Tafsili_Shahr.pdf", height=800)
-    analysis = st.sidebar.checkbox("تجزیه و تحلیل")
-    if analysis:
-        st.write('<p class="persian-titr2">تجزیه و تحلیل و استنتاج از مطالعات</p>',
-                unsafe_allow_html=True)
-        ":orange[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]"
- 
-        st.pdf(r"D:\Arash\StreamLit\Other_Try\Multipage\03_Tahlil.pdf", height=800)
 
