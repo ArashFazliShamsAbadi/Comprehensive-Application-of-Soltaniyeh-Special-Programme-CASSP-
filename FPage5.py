@@ -35,10 +35,10 @@ def find_parcel(id):
 
 city_zones = os.path.join("geojsons", "City_Zoning.geojson")
 city_zoning = load_data(city_zones)
-functions_list = []
-with open("Functions1.txt") as file:
-    for row in file:
-        functions_list.append(row)
+# functions_list = []
+# with open("Functions1.txt") as file:
+#     for row in file:
+#         functions_list.append(row)
 
 gdf_parcels = gdf_parcels.to_crs('EPSG:32639')
 
@@ -853,5 +853,6 @@ if plot_code is not None and check_plot_code(plot_code) == plot_code:
     map1.add_child(MeasureControl(position="bottomleft",collapesed=False))
     folium.FitOverlays().add_to(map1)
     map_town = stf(map1, width=1000)
+
 
 
