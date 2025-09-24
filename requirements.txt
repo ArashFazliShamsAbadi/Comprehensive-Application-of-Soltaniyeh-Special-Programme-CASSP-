@@ -1,10 +1,8 @@
 streamlit
 geopandas
-matplotlib.pyplot
 streamlit_folium
 shapely
 pandas
-shutil
 os
 folium
 folium.plugins
