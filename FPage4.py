@@ -356,7 +356,7 @@ zoning_toggle = programme_layers.toggle("لایه های پهنه بندی")
 if zoning_toggle:
     city_zoning = programme_layers.checkbox("پهنه بندی نحوه استفاده از اراضی شهر")
     if city_zoning:
-        zoning_file = r"geojsons\Town_Zoning.geojson"
+        zoning_file = "Town_Zoning.geojson"
         folium.GeoJson(zoning_file, 
                        style_function=lambda feature: {
                            "color": zone_fill_colour[feature["properties"]["ZirPahne"]],
@@ -530,6 +530,7 @@ else:
 folium.FitOverlays().add_to(map1)
 
 map_town = stf(map1, width=700, height=600, use_container_width=True)
+
 
 
 
