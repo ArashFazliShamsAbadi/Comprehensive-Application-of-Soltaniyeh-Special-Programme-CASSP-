@@ -434,7 +434,7 @@ if other_layer_toggle:
     city_roads = programme_layers.checkbox("شبکه معابر پیشنهادی")
     if city_roads:
         roads_file = os.path.join("geojsons", "City_Roads.geojson")
-        pouste = r"geojsons\Pousteh_Pish.geojson"
+        pouste = os.path.join("geojsons", "Pousteh_Pish.geojson")
         folium.GeoJson(roads_file,style_function=lambda feature: {
             "color": road_color(feature["properties"]["Selsele"]),
             "weight": 2}, 
@@ -531,6 +531,7 @@ else:
 folium.FitOverlays().add_to(map1)
 
 map_town = stf(map1, width=700, height=600, use_container_width=True)
+
 
 
 
