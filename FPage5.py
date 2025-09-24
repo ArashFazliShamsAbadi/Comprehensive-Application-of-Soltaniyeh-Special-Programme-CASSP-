@@ -732,12 +732,12 @@ if plot_code is not None and check_plot_code(plot_code) == plot_code:
                     dimention_ratio = st.session_state.depth/st.session_state.width
                 if dimention_ratio > 1.8 and dimention_ratio < 3:
                     if st.session_state.area >= 140:
-                        building_kind1 = st.write('<p class="persian-text">الگوی توده گذاری مورد حمایت در قطعه مذکور با توجه به شرایط آن دوطرفه منفصل است .</p>', unsafe_allow_html=True, key="twoparts")
+                        building_kind1 = st.write('<p class="persian-text">الگوی توده گذاری مورد حمایت در قطعه مذکور با توجه به شرایط آن دوطرفه منفصل است .</p>', unsafe_allow_html=True)
                         st.write(f'<p class="persian-text">در صورت انتخاب الگوی فوق الذکر حداکثر سطح اشغال برابر با {floor_coverage2} در نظر گرفته می شود .</p>', unsafe_allow_html=True)
                         st.write(building_height(plot_location_point), unsafe_allow_html=True)
                         st.image("Twosided.jpg", width=500)
                     else:
-                        building_kind2 =st.write('<p class="persian-text">الگوی توده گذاری بهینه بر اساس شرایط قطعه یک طرفه است .</p>', unsafe_allow_html=True, key="onesided1")
+                        building_kind2 =st.write('<p class="persian-text">الگوی توده گذاری بهینه بر اساس شرایط قطعه یک طرفه است .</p>', unsafe_allow_html=True)
                         st.write(f'<p class="persian-text">حداکثر سطح اشغال بنا در این قطعه برابر {floor_coverage1} می باشد .</p>',
                                 unsafe_allow_html=True)
                         st.write(building_height(plot_location_point), unsafe_allow_html=True)
@@ -745,43 +745,43 @@ if plot_code is not None and check_plot_code(plot_code) == plot_code:
                 elif dimention_ratio >= 1 and dimention_ratio <= 1.8:
                     if st.session_state.area>=300 and (depth-6)/2>=4 and (width-6)/2>=4:
                         building_kind3 =st.write('<p class="persian-text">الگوی توده گذاری مورد حمایت در قطعه مذکور با توجه به شرایط آن الگوی چهار طرفه (حیاط مرکزی) است .</p>',
-                                                unsafe_allow_html=True, key="foursided1")
+                                                unsafe_allow_html=True)
                         st.write(f'<p class="persian-text">در صورت انتخاب الگوی فوق الذکر حداکثر سطح اشغال برابر با {floor_coverage2} در نظر گرفته می شود .</p>', unsafe_allow_html=True)
                         st.write(building_height(plot_location_point), unsafe_allow_html=True)
                         st.image("Foursided.png", width=500)
                     elif st.session_state.area>=300 and ((depth-6)/2<4 or (width-6)/2<4):
                         building_kind4 =st.write(f'<p class="persian-text">الگوی توده گذاری مورد حمایت در قطعه مذکور با توجه به شرایط آن الگوی سه طرفه است .</p>',
-                                                unsafe_allow_html=True, key="uform1")
+                                                unsafe_allow_html=True)
                         st.write(f'<p class="persian-text">در صورت انتخاب الگوی فوق الذکر حداکثر سطح اشغال برابر با {floor_coverage2} در نظر گرفته می شود .</p>', unsafe_allow_html=True)
                         st.write(building_height(plot_location_point), unsafe_allow_html=True)
                         st.image("Threesided.jpg", width=500)
                     elif st.session_state.area>=150 and st.session_state.area<300 and ((depth-6)/2>=4 or (width-6)/2>=4):
                         building_kind5 =st.write(f'<p class="persian-text">الگوی توده گذاری مورد حمایت در قطعه مذکور با توجه به شرایط آن الگوی سه طرفه است .</p>',
-                                                unsafe_allow_html=True, key="uform2")
+                                                unsafe_allow_html=True)
                         st.write(f'<p class="persian-text">در صورت انتخاب الگوی فوق الذکر حداکثر سطح اشغال برابر با {floor_coverage2} در نظر گرفته می شود .</p>', unsafe_allow_html=True)
                         st.write(building_height(plot_location_point), unsafe_allow_html=True)
                         st.image("Threesided.jpg", width=500)
                     elif st.session_state.area>=150 and st.session_state.area<300 and ((depth-6)/2<4 and (width-6)/2<4):
                         building_kind6 =st.write('<p class="persian-text">الگوی توده گذاری مورد حمایت در قطعه مذکور با توجه به شرایط آن الگوی دوطرفه متصل می باشد .</p>',
-                                                unsafe_allow_html=True, key="lform1")
+                                                unsafe_allow_html=True)
                         st.write(f'<p class="persian-text">در صورت انتخاب الگوی فوق الذکر حداکثر سطح اشغال برابر با {floor_coverage2} در نظر گرفته می شود .</p>', unsafe_allow_html=True)
                         st.write(building_height(plot_location_point), unsafe_allow_html=True)
                         st.image("Lshape.jpg", width=500)
                     elif st.session_state.area<150 and st.session_state.area>=75:
                         building_kind7 =st.write('<p class="persian-text">الگوی توده گذاری مورد حمایت در قطعه مذکور با توجه به شرایط آن الگوی دوطرفه متصل می باشد .</p>',
-                                                unsafe_allow_html=True, key="lform2")
+                                                unsafe_allow_html=True)
                         st.write(f'<p class="persian-text">در صورت انتخاب الگوی فوق الذکر حداکثر سطح اشغال برابر با {floor_coverage2} در نظر گرفته می شود .</p>', unsafe_allow_html=True)
                         st.write(building_height(plot_location_point), unsafe_allow_html=True)
                         st.image("Lshape.jpg", width=500)
                     else:
                         building_kind8 =st.write('<p class="persian-text">الگوی توده گذاری بهینه بر اساس شرایط قطعه یک طرفه است .</p>', 
-                                                unsafe_allow_html=True, key="onesided2")
+                                                unsafe_allow_html=True)
                         st.write(f'<p class="persian-text">حداکثر سطح اشغال بنا در این قطعه برابر {floor_coverage1} می باشد .</p>', 
                                 unsafe_allow_html=True)
                         st.write(building_height(plot_location_point), unsafe_allow_html=True)
                 elif dimention_ratio >= 3:
                     building_kind9 =st.write('<p class="persian-text">الگوی توده گذاری بهینه بر اساس شرایط قطعه یک طرفه است .</p>', 
-                                            unsafe_allow_html=True, key="onesided3")
+                                            unsafe_allow_html=True)
                     st.write(f'<p class="persian-text">حداکثر سطح اشغال بنا در این قطعه برابر {floor_coverage1} می باشد .</p>', 
                             unsafe_allow_html=True)
                     st.write(building_height(plot_location_point), unsafe_allow_html=True)
@@ -790,7 +790,7 @@ if plot_code is not None and check_plot_code(plot_code) == plot_code:
                             unsafe_allow_html=True)
             elif main_zone[0] == "S" and msg1 !="":
                 building_kind10 =st.write('<p class="persian-text">الگوی توده گداری به صورت یک طرفه در نظر گرفته شود. ضمنا می بایست نمای اصلی بنا متصل به معبر اصلی دسترسی در نظر گرفته شود .</p>',
-                                        unsafe_allow_html=True, key="onesidedcommercial")
+                                        unsafe_allow_html=True)
                 st.write(f'<p class="persian-text">حداکثر سطح اشغال بنا در این قطعه برابر {floor_coverage3} می باشد .</p>', 
                         unsafe_allow_html=True)
                 st.write(building_height(plot_location_point), unsafe_allow_html=True)
@@ -853,6 +853,7 @@ if plot_code is not None and check_plot_code(plot_code) == plot_code:
     map1.add_child(MeasureControl(position="bottomleft",collapesed=False))
     folium.FitOverlays().add_to(map1)
     map_town = stf(map1, width=1000)
+
 
 
 
