@@ -4,5 +4,4 @@ shapely
 folium
 utm
 pyproj
-zipfile
 io
