@@ -22,7 +22,7 @@ def load_data(path):
 
 
 # basic files for working with
-parcels = r"geojsons\Parcel1401.geojson"
+parcels = os.path.join("geojsons", "Parcel1401.geojson")
 gdf_parcels = load_data(parcels)
 gdf_parcels_check = gdf_parcels.set_index("ObjectID", drop=False)
 
@@ -33,7 +33,7 @@ def find_parcel(id):
     except KeyError:
         return None
 
-city_zones = r"geojsons\City_Zoning.geojson"
+city_zones = os.path.join("geojsons", "City_Zoning.geojson")
 city_zoning = load_data(city_zones)
 functions_list = []
 with open("Functions1.txt") as file:
@@ -42,7 +42,7 @@ with open("Functions1.txt") as file:
 
 gdf_parcels = gdf_parcels.to_crs('EPSG:32639')
 
-axial_map_json = r"geojsons\Axial_Map.geojson"
+axial_map_json = os.path.join("geojsons", "Axial_Map.geojson")
 axial_map = load_data(axial_map_json) 
 
 
@@ -57,13 +57,13 @@ def zone_res(zone):
     res_rate = b_f.iloc[0]
     return res_rate
 
-historical_sites_path = r"geojsons\Historical_sites_boundaries.geojson"
+historical_sites_path = os.path.join("geojsons", "Historical_sites_boundaries.geojson")
 historical_sites = load_data(historical_sites_path)
 
-parcel_width = r"geojsons\Parcel_width.geojson"
+parcel_width = os.path.join("geojsons", "Parcel_width.geojson")
 parcel_width_road = load_data(parcel_width)
 
-parcel_angle = r"geojsons\parcel_angle.geojson"
+parcel_angle = os.path.join("geojsons", "parcel_angle.geojson")
 parcel_angle_gdf = load_data(parcel_angle)
 
 @st.cache_data
@@ -123,7 +123,7 @@ def landuse_current(a):
 basic_rates = "Residential_Rates.xlsx"
 basic_rates_df = read_pd_file(basic_rates).set_index("title", drop=False)
 
-city_blocks = r"geojsons\City_New_Blocks.geojson"
+city_blocks = os.path.join("geojsons", "City_New_Blocks.geojson")
 city_blocks_gdf = load_data(city_blocks)
 city_blocks_gdf = city_blocks_gdf.to_crs('EPSG:32639')
 
@@ -491,25 +491,18 @@ if plot_code is not None and check_plot_code(plot_code) == plot_code:
 
 
     # to find relevant local project
-    base_local_projects = r"geojsons\Detailed_Projects.geojson.geojson"
+    base_local_projects = os.path.join("geojsons", "Detailed_Projects.geojson.geojson")
     local_projects = load_data(base_local_projects)
     local_projects = local_projects.to_crs('EPSG:32639')
 
 
     # to find if the plot has a public facility laduse
-    public_facilities = r"geojsons\Public_Facilities.geojson"
+    public_facilities = os.path.join("geojsons", "Public_Facilities.geojson")
     public_facilities_gdf = load_data(public_facilities)  
     public_facilities_gdf = public_facilities_gdf.to_crs('EPSG:32639')  
 
-
-    # to show a picture taken around the plot
-    # photos = r'D:\Arash\ArcGis_Pro_Manual\Folium_Map_Interactive\Shp\new_photos.shp'
-    # photo_points = load_data(photos)
-    # photo_points = photo_points.to_crs('EPSG:32639')
-    # closest_photo = plot_location.sjoin_nearest(photo_points, distance_col="Distance")
-
     # basic file to assess if a plot is inside a historical site or buffer zone
-    historical_buffers = r"geojsons\Historical_Buffer_Boundaries.geojson"
+    historical_buffers = os.path.join("geojsons", "Historical_Buffer_Boundaries.geojson")
     historical_buffer_gdf = load_data(historical_buffers)
     historical_buffer_gdf = historical_buffer_gdf.to_crs('EPSG:32639')
     def building_height(point):
@@ -860,4 +853,5 @@ if plot_code is not None and check_plot_code(plot_code) == plot_code:
     map1.add_child(MeasureControl(position="bottomleft",collapesed=False))
     folium.FitOverlays().add_to(map1)
     map_town = stf(map1, width=1000)
+
 
