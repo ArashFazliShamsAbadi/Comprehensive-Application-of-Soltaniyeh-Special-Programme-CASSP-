@@ -16,7 +16,7 @@ def load_data(path):
 # main_directory = r'D:\Arash\StreamLit\Other_Try\Multipage'
 
 # basic files for working with
-parcels = r"geojsons\Parcel1401.geojson"
+parcels = os.path.join("geojsons", "Parcel1401.geojson")
 gdf_parcels = load_data(parcels)
 gdf_parcels_check = gdf_parcels.set_index("ObjectID", drop=False)
 
@@ -27,19 +27,19 @@ def find_parcel(id):
     except KeyError:
         return None
 
-city_zones = r"geojsons\City_Zoning.geojson"
+city_zones = os.path.join("geojsons", "City_Zoning.geojson")
 city_zoning = load_data(city_zones)
 functions_list = []
 with open("Functions1.txt") as file:
     for row in file:
         functions_list.append(row)
 
-historical_sites_path = r"geojsons\Historical_sites_boundaries.geojson"
+historical_sites_path = os.path.join("geojsons", "Historical_sites_boundaries.geojson")
 historical_sites = load_data(historical_sites_path)
-parcel_width = r"geojsons\Parcel_width.geojson"
+parcel_width = os.path.join("geojsons", "Parcel_width.geojson")
 parcel_width_road = load_data(parcel_width)
 
-parcel_angle = r"geojsons\parcel_angle.geojson"
+parcel_angle = os.path.join("geojsons", "parcel_angle.geojson")
 parcel_angle_gdf = load_data(parcel_angle)
 
 @st.cache_data
@@ -284,25 +284,19 @@ if plot_code is not None and check_plot_code(plot_code) == plot_code:
 
 
     # to find relevant local project
-    base_local_projects = r"geojsons\Detailed_Projects.geojson"
+    base_local_projects = os.path.join("geojsons", "Detailed_Projects.geojson")
     local_projects = load_data(base_local_projects)
     local_projects = local_projects.to_crs(city_zoning.crs)
 
 
     # to find if the plot has a public facility laduse
-    public_facilities = r"geojsons\Public_Amenities.geojson"
+    public_facilities = os.path.join("geojsons", "Public_Amenities.geojson")
     public_facilities_gdf = load_data(public_facilities)  
     public_facilities_gdf = public_facilities_gdf.to_crs(city_zoning.crs)  
-
-
-    # to show a picture taken around the plot
-    # photos = r'D:\Arash\ArcGis_Pro_Manual\Folium_Map_Interactive\Shp\new_photos.shp'
-    # photo_points = load_data(photos)
-    # photo_points = photo_points.to_crs(crs = city_zoning.crs)
-    # closest_photo = plot_location.sjoin_nearest(photo_points, distance_col="Distance")
+    
 
     # basic file to assess if a plot is inside a historical site or buffer zone
-    historical_buffers = r"geojsons\Historical_Buffer_Boundaries.geojson"
+    historical_buffers = os.path.join("geojsons", "Historical_Buffer_Boundaries.geojson")
     historical_buffer_gdf = load_data(historical_buffers)
     historical_buffer_gdf = historical_buffer_gdf.to_crs(crs = city_zoning.crs)
     def building_height(point):
@@ -361,8 +355,6 @@ if plot_code is not None and check_plot_code(plot_code) == plot_code:
         st.write(f"The current laduse is :blue[**{landuse_current(list(plot_location['Landuse'])[0])}**] .")
         if int(list(plot_location['Floor'])[0]) >0:
             st.write(f"The number of floor is :blue[**{list(plot_location['Floor'])[0]}**] .")
-        # parcel_image = shutil.copyfile(closest_photo["Path"].values[0], os.path.join(main_directory, closest_photo["Name"].values[0]))
-        # st.image(parcel_image, width=400, caption="Photo taken by: Arash Fazli Shams Abadi")
         
         
         
@@ -460,42 +452,42 @@ if plot_code is not None and check_plot_code(plot_code) == plot_code:
                     st.write(building_height(plot_location_point))
                     st.image("Twosided.jpg", width=500)
                 else:
-                    building_kind2 =st.write("The building should be :blue[**one-sided**].", key="onesided1")
+                    building_kind2 =st.write("The building should be :blue[**one-sided**].")
                     st.write(f"The maximum floor coverage is {floor_coverage1} .")
                     st.write(building_height(plot_location_point))
 
             elif dimention_ratio >= 1 and dimention_ratio <= 1.8:
                 if st.session_state.area>=300 and (depth-6)/2>=4 and (width-6)/2>=4:
-                    building_kind3 =st.write("The building should be designed in :blue[**4-sided form**].", key="foursided1")
+                    building_kind3 =st.write("The building should be designed in :blue[**4-sided form**].")
                     st.write(f"If this form is used, the maximum floor coverage will be :blue[**{floor_coverage2}**] .")
                     st.write(building_height(plot_location_point))
                     st.image("Foursided.png", width=500)
                 elif st.session_state.area>=300 and ((depth-6)/2<4 or (width-6)/2<4):
-                    building_kind4 =st.write("The building should be designed in :blue[**U-form**].", key="uform1")
+                    building_kind4 =st.write("The building should be designed in :blue[**U-form**].")
                     st.write(f"If this form is used, the maximum floor coverage will be :blue[**{floor_coverage2}**] .")
                     st.write(building_height(plot_location_point))
                     st.image("Threesided.jpg", width=500)
                 elif st.session_state.area>=150 and st.session_state.area<300 and ((depth-6)/2>=4 or (width-6)/2>=4):
-                    building_kind5 =st.write("The building should be designed in :blue[**U-form**].", key="uform2")
+                    building_kind5 =st.write("The building should be designed in :blue[**U-form**].")
                     st.write(f"If this form is used, the maximum floor coverage will be :blue[**{floor_coverage2}**] .")
                     st.write(building_height(plot_location_point))
                     st.image("Threesided.jpg", width=500)
                 elif st.session_state.area>=150 and st.session_state.area<300 and ((depth-6)/2<4 and (width-6)/2<4):
-                    building_kind6 =st.write("The building should be designed in :blue[**L-form**].", key="lform1")
+                    building_kind6 =st.write("The building should be designed in :blue[**L-form**].")
                     st.write(f"If this form is used, the maximum floor coverage will be :blue[**{floor_coverage2}**] .")
                     st.write(building_height(plot_location_point))
                     st.image("Lshape.jpg", width=500)
                 elif st.session_state.area<150 and st.session_state.area>=75:
-                    building_kind7 =st.write("The building should be designed in :blue[**L-form**].", key="lform2")
+                    building_kind7 =st.write("The building should be designed in :blue[**L-form**].")
                     st.write(f"If this form is used, the maximum floor coverage will be :blue[**{floor_coverage2}**] .")
                     st.write(building_height(plot_location_point))
                     st.image("Lshape.jpg", width=500)
                 else:
-                    building_kind8 =st.write("The building should be :blue[**one-sided**].", key="onesided2")
+                    building_kind8 =st.write("The building should be :blue[**one-sided**].")
                     st.write(f"The maximum floor coverage is {floor_coverage1} .")
                     st.write(building_height(plot_location_point))
             elif dimention_ratio >= 3:
-                building_kind9 =st.write("The building should be :blue[**one-sided**].", key="onesided3")
+                building_kind9 =st.write("The building should be :blue[**one-sided**].")
                 st.write(f"The maximum floor coverage is {floor_coverage1} .")
                 st.write(building_height(plot_location_point))
             else:
@@ -547,5 +539,6 @@ if plot_code is not None and check_plot_code(plot_code) == plot_code:
     folium.FitOverlays().add_to(map1)
     map_town = stf(map1) 
     
+
 
 
