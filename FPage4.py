@@ -286,7 +286,7 @@ main_layers = st.sidebar.expander("عرصه های تاریخی و حرایم آ
 
 chaman_toggle = main_layers.toggle("چمن سلطانیه")
 if chaman_toggle:
-    chaman_file = "Chaman.geojson"
+    chaman_file = os.path.join("geojsons", "Chaman.geojson")
     folium.GeoJson(
         chaman_file,
         style_function=lambda feature: {
@@ -530,6 +530,7 @@ else:
 folium.FitOverlays().add_to(map1)
 
 map_town = stf(map1, width=700, height=600, use_container_width=True)
+
 
 
 
